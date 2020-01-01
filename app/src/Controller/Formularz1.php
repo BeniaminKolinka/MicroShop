@@ -4,14 +4,18 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
-class Formularz1
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+
+class Formularz1 extends AbstractController
 {
     public function form1()
     {
         $number = random_int(0,100);
-        return new Response(
-            '<html><body>Lucky number:'.$number.'</body></html>'
 
-        );
+        return $this->render('Formularz1/Formularz1.html.twig',[
+            'number' => $number
+            ]);
     }
 }
