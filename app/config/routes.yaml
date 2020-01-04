@@ -1,6 +1,0 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
-app_formularz1:
-  path: /Formularz1
-  controller: App\Controller\Formularz1::form1
