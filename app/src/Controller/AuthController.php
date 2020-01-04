@@ -25,12 +25,27 @@ class AuthController extends AbstractController
 
         $form = $this->createForm(RegistrationType::class, $userModel);
 
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            /** @var UserModel $userModel */
+            $userModel = $form->getData();
+
+
+            return $this->redirectToRoute('welcome_page', [
+                'name' => $userModel->getUsername()
+            ]);
+        }
+
+
         return $this->render(
             "Auth/register.html.twig",
             [
                 'registrationForm' => $form->createView(),
             ]
         );
+
+
     }
 
 
