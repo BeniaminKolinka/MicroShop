@@ -1,23 +1,30 @@
 <?php
 
 
-namespace App\User\Model;
+namespace App\Auth\Model;
 
+
+use Symfony\Component\Validator\Constraints as Assert;
 
 class UserModel
 {
     /**
      * @var string
+     * @Assert\Length(min="5")
      */
     private $username;
     private $firstName;
     private $email;
+    /**
+     * @var string
+     * @Assert\Length(min="8")
+     */
     private $password;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getUsername() : string
+    public function getUsername() : ?string
     {
         return $this->username;
     }
